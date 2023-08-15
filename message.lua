@@ -1,23 +1,6 @@
 local guilib = {}
 local ts = game:GetService("TweenService")
 
---[[
-    docs:
-        local tab1 = guilib:NewTab("Hello", 0) - name, icon
-        local toggle1 = tab1:Toggle("Hello", false, function(call) -- name, default(if you want it to be toggled on when gui loads and user didnt disalbe), callback
-            print(call)
-        end)
-        toggle1:Slider("Slider", 0, 100, 50, function(call) - Name, Min, Max, default, callback
-            print(call)
-        end)
-        toggle1:Dropdown("Dropdown", {"Hello", "Sex", "Ui"}, "Ui", function(call) - Name, Options(table), default, callback
-            print(call)
-        end)
-        gulib:Divider("Div") - Text
-        local tab2 = guilib:NewTab("Hello2", 0) - name, icon
-        guilib:notify("Hello", "This is a notification", 10) - Title, Info, Dur
-]]
-
 function smoothdrag(ui)
     local dragging
     local dragInput
