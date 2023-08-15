@@ -40,6 +40,8 @@ function smoothdrag(ui)
     end)
 end
 
+
+
 local tabs
 local Core
 local maingui
@@ -80,6 +82,14 @@ function guilib:Init(Title)
     titl.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
     titl.TextXAlignment = Enum.TextXAlignment.Left
 end
+
+local toggleguicon
+toggleguicon = game:GetService("UserInputService").InputBegan:Connect(function(input, isTyping)
+    if isTyping then return end
+    if input.KeyCode == Enum.KeyCode.V and maingui then
+        maingui.Enabled = not maingui.Enabled
+    end
+end)
 
 
 local mostbut = Instance.new("Frame")
@@ -134,7 +144,7 @@ function guilib:NewTab(Name, Icon)
     TextLabel_2.TextSize = 14.000
     TextLabel_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
-
+if Icon ~= nil and Icon ~= 0 then
     local Icon_2 = Instance.new("ImageLabel")
     Icon_2.Name = "Icon"
     Icon_2.Parent = ButtonHolder
@@ -145,7 +155,7 @@ function guilib:NewTab(Name, Icon)
 
     local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
     UIAspectRatioConstraint_2.Parent = Icon_2
-
+end
     local Toggle_2 = Instance.new("TextButton")
     Toggle_2.Name = "Toggle"
     Toggle_2.Parent = ButtonHolder
